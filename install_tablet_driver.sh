@@ -14,6 +14,7 @@ lines_to_add=(
 )
 demon_path=$driver_path/bin/OpenTabletDriver.Daemon
 ui_path=$driver_path/bin/OpenTabletDriver.UX.Gtk
+alias_command="alias dotnet='$HOME/dotnet/dotnet'"
 
 # debug remove dotnet
 # sudo rm -r $dot_net_path
@@ -48,6 +49,14 @@ if [ ! -d "$dot_net_path" ]; then
     sudo mkdir -p $dot_net_path && sudo tar zxf dotnet-sdk-7.0.305-linux-arm64.tar.gz -C $dot_net_path
 else
     echo "   > dotnet directory found"
+fi
+
+# set dotnet alias for user
+if ! grep -qF "$alias_command" ~/.bashrc; then
+    echo "   > added [$alias_command] to bashrc file"
+    echo "$alias_command" >> ~/.bashrc
+else
+    echo "   > found [$alias_command] in bashrc file"
 fi
 
 # set dotnet path for user
