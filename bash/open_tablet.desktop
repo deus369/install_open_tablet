@@ -1,0 +1,7 @@
+[Desktop Entry]
+Version=1.0
+Name=Open Tablet
+Type=Application
+Icon=utilities-terminal
+Terminal=true
+Exec=bash -ic /home/deus/projects/install_open_tablet/run_daemon
